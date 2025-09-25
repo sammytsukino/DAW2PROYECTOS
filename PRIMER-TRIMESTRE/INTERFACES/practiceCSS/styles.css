@@ -1,3 +1,83 @@
 * {
     margin: 0;
+    padding: 10px;
+}
+
+button {
+    background-color: rgb(255, 191, 191);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* button:hover {
+    background-color: lightcoral;
+    color: white;
+} */
+
+/* button:active{
+    transform: scale(1.2);
+    background-color:coral;
+    color: white;
+} */
+
+
+input:focus {
+    border: 2px solid orange;
+    outline: none;
+    background-color: antiquewhite;
+}
+
+
+li:nth-child(2) {
+    color: coral;
+}
+
+
+li:nth-child(odd) {
+    color:rgb(93, 160, 160)
+}
+
+li:first-child {
+    font-weight: bold;
+}
+
+li:last-child {
+    font-weight: bold;
+}
+
+/* li:not(:first-child) {
+    color: blueviolet;
+} */
+
+input:checked ~ label {
+    font-weight: bold;
+    color:darkblue;
+}
+
+fieldset:disabled {
+    background-color: antiquewhite;
+}
+
+input:invalid {
+    border: 2px solid green;
+}
+
+fieldset:focus-within {
+    border: 1px solid red;
+}
+
+
+p::before {
+    content: "⚠️";
+}
+
+p::after {
+    content: "❤️"
+}
+
+input::placeholder {
+    color: violet;
+    font-style: italic;
 }
