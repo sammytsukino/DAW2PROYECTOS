@@ -7,4 +7,5 @@ if decision == 0:
         f.write(getcwd())
 elif decision == 1:
     with open("ruta.txt", "r") as f:
-        print(f.read())
+        print("La ruta actual es " + f.read())
+
