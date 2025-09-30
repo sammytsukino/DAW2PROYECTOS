@@ -1,12 +1,13 @@
 from os import getcwd
 
-decision = 0
+decision = 1
 
 if decision == 0:
-    with open("ruti.txt", "w") as f: 
+    with open("ruta.txt", "w") as f: 
         f.write(getcwd())
 elif decision == 1:
     with open("ruta.txt", "r") as f:
-        print(f.read())
+        datos = f.read()
+        print("La ruta actual es " + datos)
 
 
