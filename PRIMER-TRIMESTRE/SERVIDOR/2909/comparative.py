@@ -1,6 +1,6 @@
 numero1 = 1
 numero2 = 2
-numero3 = 3
+numero3 = 15
 
 def compararNumeros(numero1, numero2, numero3):
     if numero1 >= numero2 and numero1 >= numero3:
