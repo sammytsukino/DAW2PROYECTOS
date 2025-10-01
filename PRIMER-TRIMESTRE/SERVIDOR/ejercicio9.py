@@ -9,8 +9,8 @@ contacto = {
 }
 
 class AgendaTelefonica:
-    def __init__(self, contactos=None):
-        self.contactos = contactos if contactos is not None else {}
+    def __init__(self, contactos={}):
+        self.contactos = contactos
     
     def añadir_contacto(self, contacto):
         self.contactos.update(contacto)
