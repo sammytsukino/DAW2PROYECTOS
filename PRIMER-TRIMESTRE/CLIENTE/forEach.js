@@ -42,6 +42,13 @@ console.log("\nEjercicio 3: forEach con objetos");
 
 // Tu código aquí
 
+
+personas.forEach(persona => {
+  console.log(`${persona.nombre} tiene ${persona.edad} años.`)
+})
+
+
+
 // Resultado esperado:
 // Ana tiene 28 años
 // Juan tiene 32 años
@@ -59,6 +66,8 @@ console.log(numerosAlCuadrado);
 console.log("\nEjercicio 5: map con strings");
 // Utiliza map para crear un nuevo array con la longitud de cada palabra en el array 'palabras'.
 
+const longitudPalabras = palabras.map(palabra => palabra.length)
+
 // Tu código aquí
 
 console.log(longitudPalabras);
@@ -67,6 +76,10 @@ console.log(longitudPalabras);
 // 6. map con objetos
 console.log("\nEjercicio 6: map con objetos");
 // Utiliza map para crear un nuevo array de strings que contenga solo los nombres de las personas en el array 'personas'.
+
+
+
+const soloNombres = personas.map(persona => persona.nombre)
 
 // Tu código aquí
 
@@ -78,7 +91,14 @@ console.log("\nEjercicio 7: Combinación de map y forEach");
 // Primero, utiliza map para crear un nuevo array con las edades de las personas en el array 'personas'.
 // Luego, utiliza forEach para calcular y imprimir la suma de todas las edades.
 
-// Tu código aquí
+
+const edades = personas.map(persona => persona.edad);
+console.log("Las edades son: ", edades);
+
+let sumaEdades = 0;
+edades.forEach(edad => sumaEdades += edad);
+console.log("La suma de todas las edades es: ", sumaEdades);
+
 
 // Resultado esperado:
 // Las edades son: [28, 32, 25]

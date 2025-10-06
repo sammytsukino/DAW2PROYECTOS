@@ -12,3 +12,5 @@ console.log("\nEjercicio 4: map básico");
 
 const numerosAlCuadrado = numeros.map(num => num ** 2)
 console.log(numerosAlCuadrado);
+
+
