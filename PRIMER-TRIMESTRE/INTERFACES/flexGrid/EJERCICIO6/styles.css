@@ -8,3 +8,19 @@
     background-color: beige;
 }
 
+.container div {
+    background-color: rgb(166, 255, 225);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15;
+}
+
+.box5{
+    grid-column: span 2;
+}
+
+.container .box4{
+    grid-column: span 3;
+    background-color: pink;
+}
