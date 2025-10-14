@@ -1,0 +1,27 @@
+
+.container {
+/*     display: flex; */
+    border: 2px solid black;
+    gap: 10px;
+    position: relative;
+    padding: 10px;
+}
+
+
+.box {
+
+    width:100px;
+    height: 100px;
+    background-color: lightpink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+.box2 {
+    background-color: aquamarine;
+    position: relative;
+    z-index: 5;
+}
+

@@ -34,7 +34,7 @@
 
 .main {
     grid-area: main;
-    background-color: rgb(249, 255, 196);
+    background-color: rgb(220, 255, 196);
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -42,11 +42,13 @@
 
 .footer {
     grid-area: footer;
-    background-color: rgb(249, 255, 196);
+    background-color: rgb(255, 196, 234);
     display: flex;
     justify-content: center;
     align-items: center; 
 }
+
+
 
 
 
