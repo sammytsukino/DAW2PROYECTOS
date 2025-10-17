@@ -47,4 +47,3 @@ app.delete("/:nombre", (req, res) => {
 app.listen(8080, () => {
     console.log("Servidor arrancado");
 })
-
