@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej18</title>
+    <link rel="stylesheet" href="ej18.css">
+</head>
+<body>
+    <h1>Ejercicio 18: Tabla con ID incremental</h1>
+    <div class="container">
+        <form id="form">
+            <div class="form-group">
+                <label for="field1">Campo 1:</label>
+                <input type="text" id="field1" required>
+            </div>
+            <div class="form-group">
+                <label for="field2">Campo 2:</label>
+                <input type="text" id="field2" required>
+            </div>
+            <button type="submit">Añadir a la tabla</button>
+        </form>    
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Campo 1</th>
+                    <th>Campo 2</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+    <script src="ej18.js"></script>
+</body>
+</html>
