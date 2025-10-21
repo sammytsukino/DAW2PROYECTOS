@@ -1,0 +1,10 @@
+.btn-custom {
+    background-color: aquamarine;
+}
+
+:root {
+    --color-principal: blue;
+    --color-secundario: black;
+    --fondo-card: magenta;
+}
+
