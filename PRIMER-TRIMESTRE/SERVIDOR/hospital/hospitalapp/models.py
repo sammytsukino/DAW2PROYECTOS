@@ -19,7 +19,13 @@ class Registro(models.Model):
     apellidos_paciente = models.CharField(max_length=50, validators=[MinLengthValidator(2)])
     dni = models.CharField(max_length=9, validators=[MinLengthValidator(9)])
     fecha_cita = models.DateField()
+    proxima_cita= models.DateField()
     hora_cita = models.TimeField()
     medicacion = models.BooleanField()
     medicamento = models.CharField(blank=True)
     dosis = models.IntegerField(blank=True, null=True, validators = [valida_tres, valida_dosis])
+
+    def clean(self):
+        super().clean()
+        if (self.fecha_cita < self.proxima_cita):
+            raise ValidationError("La próxima fecha debe ser más tarde que la actual")

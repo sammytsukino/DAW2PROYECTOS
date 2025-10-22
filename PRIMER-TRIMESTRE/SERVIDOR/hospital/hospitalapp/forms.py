@@ -23,6 +23,7 @@ class RegistroForm(forms.ModelForm):
             "fecha_cita": forms.DateInput(attrs={"type": "date"}),
             "hora_cita": forms.TimeInput(attrs={"type": "time"}),
             "medicacion": forms.CheckboxInput(attrs={"class": "form-check-input"}),
+            "proxima_cita" : forms.DateInput(attrs={"type": "date"})
         }
 
         error_messages = {
@@ -40,4 +41,8 @@ class RegistroForm(forms.ModelForm):
                 "max_length" : "Los apellidos son demasiado largos",
                 "min_length" : "Los apellidos son demasiado cortos"
             },
+
+            "medicacion": {
+                "required": "El campo medicación es requerido"
+            }
         }
