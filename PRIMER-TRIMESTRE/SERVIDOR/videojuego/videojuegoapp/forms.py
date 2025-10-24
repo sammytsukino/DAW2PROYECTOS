@@ -17,7 +17,7 @@ class RegistroForm(forms.ModelForm):
             "online" : "¿Se juega online?",
             "precio_salida" : "Precio de salida",
             "precio_actual" : "Precio actual"
-        }  
+        }   
 
         widgets = {
             "descripcion": forms.Textarea(attrs={"rows": 3}),
