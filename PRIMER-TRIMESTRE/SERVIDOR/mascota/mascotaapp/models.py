@@ -19,7 +19,7 @@ class Mascota(models.Model):
     def clean(self):
         super().clean()
         errores = {}
-        if self.ultima_vacuna and self.ultima_vacuna <= self.fecha_nacimiento:
+        if self.ultima_vacuna and self.ultima_vacuna < self.fecha_nacimiento:
             errores["ultima_vacuna"] = "La fecha de la última vacunación debe ser posterior a la fecha de nacimiento"
         if self.vacunado and not self.ultima_vacuna:
             errores["ultima_vacuna"] = "Por favor, introduce la fecha de la última vacuna"
