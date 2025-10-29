@@ -25,7 +25,6 @@ const tree = {
 }
 
 
-
 function treeHeight(tree) {
     if(tree) { const leftHeight = treeHeight(tree.left);
     const rightHeight = treeHeight(tree.right);
