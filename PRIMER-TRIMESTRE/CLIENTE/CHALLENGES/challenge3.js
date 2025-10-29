@@ -1,3 +1,6 @@
+//BONITO PARA EXAMEN
+
+
 /* En el taller de Santa, un elfo travieso ha estado 
 jugando en la cadena de fabricación de regalos, 
 añadiendo o eliminando un paso no planificado.
