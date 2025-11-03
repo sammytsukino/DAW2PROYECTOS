@@ -20,4 +20,7 @@ from django.urls import path
 
 urlpatterns = [
     path('miform', views.form, name = "miform"),
+    path("<int:pk>/edit", views.mascota_edit, name="mascota_edit"),
+    path("list", views.mascota_list, name="mascota_list"),
+    path("<int:pk>/delete", views.mascota_delete, name="mascota_delete")
 ]

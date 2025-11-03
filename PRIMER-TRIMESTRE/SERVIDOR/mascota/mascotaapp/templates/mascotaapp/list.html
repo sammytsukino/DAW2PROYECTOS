@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <ul>
+            {% for mascota in mascotas %}
+                <li>{{ mascota.nombre }} <a href="{% url 'mascota_edit' mascota.pk %}">Edit</a> <a href="{% url 'mascota_delete' mascota.pk %}">Delete</a></li>
+            
+            {% empty %}
+                No hay mascotas
+            {% endfor %}
+        </ul>
+    </body>
+</html>
