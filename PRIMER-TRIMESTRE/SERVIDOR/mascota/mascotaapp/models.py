@@ -23,7 +23,7 @@ class Mascota(models.Model):
         ("CON", "Conejo"),
         ("TOR", "Tortuga")
     ]
-    tipo = models.CharField(choices=TIPOS, max_length=2)
+    tipo = models.CharField(choices=TIPOS, max_length=3)
     fecha_nacimiento = models.DateField()
     peso = models.DecimalField(max_digits=5, decimal_places=2, validators=[comprobar_peso])
     vacunado = models.BooleanField(default=False)
