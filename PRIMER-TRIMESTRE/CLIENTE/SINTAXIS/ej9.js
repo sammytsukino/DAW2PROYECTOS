@@ -7,3 +7,16 @@
  * (No se debe utilizar la función Math.min)
  */
 
+function findMin(arr) {
+    let min = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i]
+        }
+    }
+    return min;
+}
+
+const numbers = [3, 5, 7, 1, 6]
+
+console.log(findMin(numbers))

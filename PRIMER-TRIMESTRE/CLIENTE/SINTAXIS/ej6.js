@@ -12,3 +12,18 @@
  * @param {number} param 
  * @returns {string}
  */
+let evenNumber = 12;
+let oddNumber = 15;
+
+function isEven(param) {
+    if (param % 2 === 0) {
+        return (" Es un número par")
+    } else {
+        return (" Es un numero impar")
+    }
+}
+
+console.log(evenNumber + isEven(evenNumber))
+console.log(oddNumber + isEven(oddNumber))
+
+

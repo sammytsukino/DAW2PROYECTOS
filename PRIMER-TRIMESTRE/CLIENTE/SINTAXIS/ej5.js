@@ -5,4 +5,14 @@
  * Así, el factorial de 5 (escrito como 5!) es igual a: 5! = 5 x 4 x 3 x 2 x 1 = 120 
  * Utilizando la estructura for, crear un script que calcule el factorial de un número entero.
  */
+const n = 5;
+let factorial = 1;
+
+for (let i = 1; i <= n; i++) {
+    factorial *= i;
+}
+
+console.log("Factorial de " + n +"! ");
+console.log(factorial + " ")
+
 
