@@ -33,7 +33,7 @@ const c = decode('sa(u(cla)atn)s')
 console.log(c) // santaclaus
 
 
-function decode(mensaje) {
+/* function decode(mensaje) {
     while (mensaje.includes('(')) { //Mientras haya un paréntesis, hago:
         let indiceCierre = mensaje.indexOf(')') //Busco el índice del último paréntesis (izquierda a derecha)
         console.log(indiceCierre)
@@ -50,3 +50,37 @@ function decode(mensaje) {
     return mensaje;
 }
 
+
+console.log(c) // santaclaus
+
+function decode(cadena) {
+    let cadenaNueva = [""];
+
+    for(let letra of cadena) {
+        if(letra !== '(' && letra !== ')'){
+            cadenaNueva[cadenaNueva.length - 1] += letra;
+        } else if (letra === '('){
+            cadenaNueva.push('');
+        } else if (letra === ')'){
+            let contenido = cadenaNueva.pop();
+            let reverse = contenido.split('').reverse().join('');
+            cadenaNueva[cadenaNueva.length - 1] += reverse;
+        }
+    }
+    return cadenaNueva[0];
+} */
+
+
+function decode(message) {
+    while (message.includes('(')) {
+        message = message.replace(/\(({^()}*)\)/g, (match, content) => {
+        return content.split('').reverse().join('');
+        })
+    }
+    
+    return message;
+}
+
+let texto = "hola mundo"
+let nuevo = texto.replace("mundo", "amiga")
+console.log(nuevo)
