@@ -12,4 +12,54 @@
 
 
 
+// Función para encontrar el mayor de 3 números
+
+function mayorDeTres(a,b,c) {
+    let mayor = a;
+    if (b > mayor) mayor = b;
+    if (c > mayor) mayor = c;
+    return mayor;
+}
+
+
+function menorDeTres(a,b,c) {
+    let menor = a;
+    if (b < menor) menor = b;
+    if (c < menor) menor = c;
+    return menor;
+}
+
+function adivinarNumero() {
+    const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+    let intentoMin = 1;
+    let intentoMax = 100;
+    let intentos = 0;
+    let numeroAdivinado;
+
+    while (true) {
+        intentos++;
+        numeroAdivinado = Math.floor((intentoMin + intentoMax) / 2);
+
+        if (intento === numeroSecreto) {
+            console.log(`Adivinado. El número era ${numeroSecreto}. Lo has hecho en ${intentos}`);
+            break;
+        } else if (numeroAdivinado > numeroSecreto) {
+            intentoMin= numeroAdivinado + 1;
+        } else {
+            intentoMax= numeroAdivinado - 1;
+        }
+    }
+}
+
+function multiploDeTres(n) {
+    if (n < 100 || n > 200) {
+        return "El número debe estar entre 100 y 200"
+    }
+
+    return n % 3 === 0 ? `${n} es múltiplo de 3` : `${n} no es múltiplo de 3`
+}
+
+function esSumaDeOtros (a,b,c) {
+    return a===b+c || b=== a+c || c === a+b
+}
 
