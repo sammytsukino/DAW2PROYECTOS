@@ -136,12 +136,23 @@ function extraerMenciones(texto) {
   // Extraer @usuario (letras, números, guiones bajos)
   // Ejemplo: extraerMenciones("Hola @juan_23 y @maria") 
   // => ["juan_23", "maria"]
+  const matches = [...texto.matchAll(/@([A-Za-z0-9_]+)/g)];
+  return matches.map(m => m[1]);
 }
 
 // Ejercicio 15: Convertir texto a camelCase
 function toCamelCase(texto) {
   // Convertir "hola mundo feliz" a "holaMundoFeliz"
   // Pista: usar replace con función callback
+  if (!texto) return '';
+  return texto
+    .trim()
+    .split(/\s+/)
+    .map((word, idx) => {
+      if (idx === 0) return word.toLowerCase();
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join('');
 }
 
 // Ejercicio 16: Validar código postal español
@@ -149,12 +160,16 @@ function validarCodigoPostal(cp) {
   // 5 dígitos, primeros dos entre 01 y 52
   // Ejemplo: validarCodigoPostal("28001") => true
   // Ejemplo: validarCodigoPostal("99999") => false
+  return /^(0[1-9]|[1-4]\d|5[0-2])\d{3}$/.test(cp);
 }
 
 // Ejercicio 17: Extraer información de HTML
 function extraerTextoHTML(html) {
   // Eliminar todas las etiquetas HTML
   // Ejemplo: extraerTextoHTML("<p>Hola <b>mundo</b></p>") => "Hola mundo"
+  if (!html) return '';
+  // Quitar tags y normalizar espacios
+  return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
 // Ejercicio 18: Validar formato de hora HH:MM
@@ -162,6 +177,7 @@ function validarHora(hora) {
   // Validar formato 00:00 a 23:59
   // Ejemplo: validarHora("14:30") => true
   // Ejemplo: validarHora("25:00") => false
+  return /^([01]\d|2[0-3]):[0-5]\d$/.test(hora);
 }
 
 // Ejercicio 19: Extraer parámetros de URL
@@ -169,6 +185,20 @@ function extraerParametrosURL(url) {
   // Extraer pares clave=valor de una URL
   // Ejemplo: extraerParametrosURL("http://example.com?id=123&nombre=Juan")
   // => { id: "123", nombre: "Juan" }
+  const resultado = {};
+  if (!url || typeof url !== 'string') return resultado;
+  const qIndex = url.indexOf('?');
+  if (qIndex === -1) return resultado;
+  let query = url.slice(qIndex + 1).split('#')[0];
+  if (!query) return resultado;
+  query.split('&').forEach(pair => {
+    if (!pair) return;
+    const [rawKey, rawVal] = pair.split('=');
+    const key = decodeURIComponent(rawKey || '').trim();
+    const val = rawVal === undefined ? '' : decodeURIComponent(rawVal);
+    if (key) resultado[key] = val;
+  });
+  return resultado;
 }
 
 // Ejercicio 20: Validar NIF/NIE español
@@ -176,4 +206,37 @@ function validarNIF(nif) {
   // Validar formato: 8 dígitos + letra o letra + 7 dígitos + letra
   // Ejemplo: validarNIF("12345678Z") => true
   // Ejemplo: validarNIF("X1234567L") => true (NIE)
+  if (!nif || typeof nif !== 'string') return false;
+  const value = nif.toUpperCase().trim();
+  const letters = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
+  // NIF: 8 digits + letter
+  const nifMatch = value.match(/^(\d{8})([A-Z])$/);
+  if (nifMatch) {
+    const num = parseInt(nifMatch[1], 10);
+    const letter = nifMatch[2];
+    return letters[num % 23] === letter;
+  }
+
+  // NIE: leading letter (X,Y,Z) + 7 digits + letter
+  const nieMatch = value.match(/^([XYZ])(\d{7})([A-Z])$/);
+  if (nieMatch) {
+    const prefix = nieMatch[1];
+    const digits = nieMatch[2];
+    const letter = nieMatch[3];
+    const prefixNum = prefix === 'X' ? '0' : prefix === 'Y' ? '1' : '2';
+    const num = parseInt(prefixNum + digits, 10);
+    return letters[num % 23] === letter;
+  }
+
+  return false;
 }
+
+// --- Pruebas rápidas ---
+console.log('Ej 14:', extraerMenciones("Hola @juan_23 y @maria"));
+console.log('Ej 15:', toCamelCase('hola mundo feliz'));
+console.log('Ej 16:', validarCodigoPostal('28001'), validarCodigoPostal('99999'));
+console.log('Ej 17:', extraerTextoHTML('<p>Hola <b>mundo</b></p>'));
+console.log('Ej 18:', validarHora('14:30'), validarHora('25:00'));
+console.log('Ej 19:', extraerParametrosURL('http://example.com?id=123&nombre=Juan'));
+console.log('Ej 20:', validarNIF('12345678Z'), validarNIF('X1234567L'));
