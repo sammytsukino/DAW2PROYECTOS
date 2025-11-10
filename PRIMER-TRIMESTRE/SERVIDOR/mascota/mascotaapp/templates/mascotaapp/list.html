@@ -2,7 +2,10 @@
     <body>
         <ul>
             {% for mascota in mascotas %}
-                <li>{{ mascota.nombre }} <a href="{% url 'mascota_edit' mascota.pk %}">Edit</a> <a href="{% url 'mascota_delete' mascota.pk %}">Delete</a></li>
+                <li>{{ mascota.nombre }} <a href="{% url 'mascota_edit' mascota.pk %}">Edit</a> <a href="{% url 'mascota_delete' mascota.pk %}">Delete</a>
+                
+                <a href="{% url 'mascota_detail' mascota.pk %}">Details</a>
+                </li>
             
             {% empty %}
                 No hay mascotas
