@@ -1,5 +1,15 @@
 <html>
+    {% if tema == "oscuro" %}
+    <body style="background-color: black; color: white">
+    {% elif tema == "amarillo" %}
+    <body style="background-color: yellow; color: red">
+    {%else%}
     <body>
+    {%endif%}
+    <header>
+    <a href="{% url 'temaoscuro' %}">Tema oscuro</a>
+    <a href="{% url 'temaamarillo' %}">Tema amarillo</a>
+    </header>
         <ul>
             {% for mascota in mascotas %}
                 <li>{{ mascota.nombre }} <a href="{% url 'mascota_edit' mascota.pk %}">Edit</a> <a href="{% url 'mascota_delete' mascota.pk %}">Delete</a>

@@ -21,7 +21,15 @@ from django.urls import path
 urlpatterns = [
     path('miform', views.MascotaCreate.as_view(), name = "miform"),
     path("<int:pk>/edit", views.MascotaUpdate.as_view(), name="mascota_edit"),
-    path("list", views.MascotaList.as_view(), name="mascota_list"),
+    path("list", views.mascota_list, name="mascota_list"),
     path("<int:pk>/delete", views.MascotaDelete.as_view(), name="mascota_delete"),
-    path("<int:pk>/detail", views.MascotaDetail.as_view(), name="mascota_detail")
+    path("<int:pk>/detail", views.MascotaDetail.as_view(), name="mascota_detail"),
+    path("creacookie", views.crea_cookie, name="creacookie"),
+    path("leecookie", views.lee_cookie, name="leecookie"),
+    path("borracookie", views.borra_cookie, name="borracookie"),
+    path("temaoscuro", views.temaoscuro, name="temaoscuro"),
+    path("temaamarillo", views.temaamarillo, name="temaamarillo")
+
+
+
 ]

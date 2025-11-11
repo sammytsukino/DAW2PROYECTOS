@@ -2,11 +2,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
-class Actors(models.Model):
+class Actor(models.Model):
     name = models.CharField()
     last_name = models.CharField()
     year_of_birth = models.IntegerField()
-
 
     def __str__(self):
         return f"{self.name} {self.last_name} {self.year_of_birth}"
@@ -24,7 +23,7 @@ class Movie(models.Model):
     ]
     genre = models.CharField(choices= GENRES, max_length=2)
     director = models.CharField(max_length=100)
-    actors = models.ManyToManyField(Actors, blank=True)
+    actors = models.ManyToManyField(Actor, blank=True)
     release_year = models.IntegerField(validators=[MinValueValidator(1900)])
     duration = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(500)])
     release_date = models.DateField()

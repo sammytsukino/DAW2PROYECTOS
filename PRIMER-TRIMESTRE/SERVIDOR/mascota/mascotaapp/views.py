@@ -31,8 +31,9 @@ def mascota_edit(request, pk):
 
 
 def mascota_list(request):
+    tema = request.COOKIES.get("tema", "nada")
     mascotas = Mascota.objects.all()
-    return render(request, 'mascotaapp/list.html', {"mascotas": mascotas})
+    return render(request, 'mascotaapp/list.html', {"mascotas": mascotas, "tema": tema})
 
 
 def mascota_delete(request, pk):
@@ -68,3 +69,30 @@ class MascotaDetail(DetailView):
     model = Mascota
     template_name = "mascotaapp/detail.html"
     context_object_name = "mascota"
+
+
+
+def crea_cookie(request):
+    resp = redirect("mascota_list")
+    resp.set_cookie("tema", "oscuro")
+    return resp
+
+def temaoscuro(request):
+    resp = redirect("mascota_list")
+    resp.set_cookie("tema", "oscuro")
+    return resp
+
+def temaamarillo(request):
+    resp = redirect("mascota_list")
+    resp.set_cookie("tema", "amarillo")
+    return resp
+
+def lee_cookie(request):
+    tema = request.COOKIES.get("tema", "nada")
+    return HttpResponse(f"Tema actual: {tema}")
+
+def borra_cookie(request):
+    resp = redirect("mascota_list")
+    resp.delete_cookie("tema")
+    return resp
+
