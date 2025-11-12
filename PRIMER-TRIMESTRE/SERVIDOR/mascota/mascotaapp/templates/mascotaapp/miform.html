@@ -3,7 +3,19 @@
         <meta charset="utf-8">
         <title>Formulario de registro de mascotas</title>
     </head>
+    <header>
+    <a href="{% url 'temaoscuro' %}">Tema oscuro</a>
+    <a href="{% url 'temaamarillo' %}">Tema amarillo</a>
+    <a href="{% url 'borracookie' %}">Borrar cookie</a>
+    </header>
+
+    {% if tema == "oscuro" %}
+    <body style="background-color: black; color: white">
+    {% elif tema == "amarillo" %}
+    <body style="background-color: yellow; color: red">
+    {%else%}
     <body>
+    {%endif%}
         <div class="container">
             <form method='post' enctype="multipart/form-data">  
                 {% csrf_token %}

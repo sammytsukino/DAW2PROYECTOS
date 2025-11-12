@@ -8,6 +8,7 @@ from django.views.generic import ListView, CreateView, DeleteView, UpdateView, D
 # Create your views here.
 
 def form(request):
+    tema = request.COOKIES.get("tema", "nada")
     if request.method == "POST":
         form = MascotaForm(request.POST, request.FILES)
         if form.is_valid():
@@ -15,7 +16,7 @@ def form(request):
             return HttpResponse("Formulario válido enviado")
     else: 
         form = MascotaForm()
-    return render(request, "mascotaapp/miform.html", {"form": form})
+    return render(request, "mascotaapp/miform.html", {"form": form, "tema": tema})
 
 
 def mascota_edit(request, pk):
@@ -78,12 +79,12 @@ def crea_cookie(request):
     return resp
 
 def temaoscuro(request):
-    resp = redirect("mascota_list")
+    resp = redirect("miform")
     resp.set_cookie("tema", "oscuro")
     return resp
 
 def temaamarillo(request):
-    resp = redirect("mascota_list")
+    resp = redirect("miform")
     resp.set_cookie("tema", "amarillo")
     return resp
 
@@ -92,7 +93,7 @@ def lee_cookie(request):
     return HttpResponse(f"Tema actual: {tema}")
 
 def borra_cookie(request):
-    resp = redirect("mascota_list")
+    resp = redirect("miform")
     resp.delete_cookie("tema")
     return resp
 

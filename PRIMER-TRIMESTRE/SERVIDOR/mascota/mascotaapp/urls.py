@@ -29,7 +29,4 @@ urlpatterns = [
     path("borracookie", views.borra_cookie, name="borracookie"),
     path("temaoscuro", views.temaoscuro, name="temaoscuro"),
     path("temaamarillo", views.temaamarillo, name="temaamarillo")
-
-
-
 ]
