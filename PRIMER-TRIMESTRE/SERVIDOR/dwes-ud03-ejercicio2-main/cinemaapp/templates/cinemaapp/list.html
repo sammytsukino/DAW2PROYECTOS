@@ -1,5 +1,6 @@
-<html>
-    <body>
+{% extends "cinemaapp/layout.html" %}
+
+{%block content%}
         <ul>
             {% for movie in movies %}
                 <li>{{movie.title}}</li>
@@ -9,5 +10,4 @@
                 There are no movies
             {% endfor %}
         </ul>
-    </body>
-</html>
+{%endblock content%}
