@@ -20,6 +20,10 @@ console.log(preparedGifts3) // []
  * @returns {number[]} An array with the prepared gifts
  */
 function prepareGifts(gifts) {
-  // Code here
-  return []
+    const sorted = gifts.slice().sort((a, b) => a - b);
+    return sorted.filter((gift, index) => gift !== sorted[index - 1]);
 }
+
+const gifts1 = [3, 1, 2, 3, 4, 2, 5]
+const preparedGifts1 = prepareGifts(gifts1)
+console.log(preparedGifts1)
