@@ -1,0 +1,15 @@
+html
+  head
+    title Character list
+  body
+    h1 Character list
+    
+    if characters.length === 0
+      p There are no characters
+    else
+      ul
+        each character in characters
+          li #{character.name} - #{character.job} - Level #{character.level}
+    
+    p
+      a(href="/new") New character

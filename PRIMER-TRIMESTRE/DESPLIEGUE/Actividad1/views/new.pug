@@ -1,0 +1,36 @@
+html
+  head
+    title New character
+  body
+    h1 New character
+    
+    form(action="/create" method="POST")
+      label(for="id") ID:
+      input(type="number" id="id" name="id" required)
+      br
+      br
+      
+      label(for="name") Name:
+      input(type="text" id="name" name="name" required)
+      br
+      br
+      
+      label(for="job") Job:
+      input(type="text" id="job" name="job" required)
+      br
+      br
+      
+      label(for="weapon") Weapon:
+      input(type="text" id="weapon" name="weapon" required)
+      br
+      br
+      
+      label(for="level") Level:
+      input(type="number" id="level" name="level" min="1" max="99" required)
+      br
+      br
+      
+      button(type="submit") Create
+    
+    p
+      a(href="/list") Back
