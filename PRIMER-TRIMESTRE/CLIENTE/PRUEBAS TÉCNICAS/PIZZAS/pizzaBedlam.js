@@ -68,21 +68,21 @@ console.log();
 
 
 const pizza2 = new Pizza(PIZZAS.PROSCIUTTO)
-  .agregarExtra(EXTRAS.CHAMPINONES)
-  .agregarExtra(EXTRAS.SALSA_PICANTE);
+.agregarExtra(EXTRAS.CHAMPINONES)
+.agregarExtra(EXTRAS.SALSA_PICANTE);
 console.log("\nProsciutto con Champiñones y Salsa picante");
 console.log(pizza2.generarTicket());
 console.log();
 
 const pizza3 = new Pizza(PIZZAS.PROSCIUTTO_E_FUNGHI)
-  .agregarExtra(EXTRAS.EXTRA_QUESO)
-  .agregarExtra(EXTRAS.ANCHOAS);
+.agregarExtra(EXTRAS.EXTRA_QUESO)
+.agregarExtra(EXTRAS.ANCHOAS);
 console.log("\nProsciutto e Funghi con extra de queso y anchoas");
 console.log(pizza3.generarTicket());
 console.log();
 
 const pizza4 = new Pizza(PIZZAS.QUATTRO_STAGIONI)
-  .agregarExtra(EXTRAS.SALMON)
-  .agregarExtra(EXTRAS.TERNERA);
+.agregarExtra(EXTRAS.SALMON)
+.agregarExtra(EXTRAS.TERNERA);
 console.log("\n4 Stagioni con salmón y ternera");
 console.log(pizza4.generarTicket());
