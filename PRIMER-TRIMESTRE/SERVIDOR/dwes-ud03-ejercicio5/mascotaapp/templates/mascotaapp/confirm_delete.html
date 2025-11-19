@@ -1,0 +1,10 @@
+{% extends 'mascotaapp/layout.html' %}
+        
+{% block content %}
+    ¿Estás seguro?
+    <form method='post'>
+        {% csrf_token %}
+        <button type='submit'>Sí</button>
+        <a href="{% url 'mascota_list' %}">No</a>
+    </form>
+{% endblock content %}
