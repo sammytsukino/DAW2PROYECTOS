@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+}
+
+.button1 {
+    padding: 10px 20px;
+    background-color: blue;
+}
+
+.button2 {
+    padding: 10px 20px;
+    background-color: rgb(10, 179, 150);
+}
+
+.button3 {
+    padding: 10px 20px;
+    background-color: rgb(187, 132, 68);
+}

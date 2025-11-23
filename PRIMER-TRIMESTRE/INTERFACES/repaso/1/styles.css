@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+.card {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(189, 255, 222);
+    width: 250px;
+    border: 1px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    
+}
+.title {
+    font-weight: bold;;
+}
+.content {
+    text-align: justify;
+}

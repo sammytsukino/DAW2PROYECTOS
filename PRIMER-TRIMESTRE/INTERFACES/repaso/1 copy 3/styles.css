@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.card {
+    border: 1px solid black;
+    width: 250px;
+}
+
+.text {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.img {
+    height: 100px;
+    background-color: grey;
+    border: 1px;
+}
