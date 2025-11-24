@@ -15,3 +15,26 @@
     padding: 10px 50px;
     background-color: midnightblue;
 }
+
+.navbar2 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    color: aliceblue;
+    padding: 20px;
+    color: white;
+    background-color: midnightblue;
+    cursor: pointer;
+}
+
+.navbar2 ul {
+    list-style: none;
+}
+
+.navbar2 a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-align: center;
+    border-right: 1px;
+}

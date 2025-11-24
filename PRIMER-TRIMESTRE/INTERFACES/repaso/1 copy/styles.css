@@ -9,21 +9,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
     gap: 20px;
+    background-color: rgb(203, 222, 239);
+    margin: auto;
+    flex-wrap: wrap;
 }
 
 .button1 {
     padding: 10px 20px;
     background-color: blue;
+    cursor: pointer;
 }
 
 .button2 {
     padding: 10px 20px;
     background-color: rgb(10, 179, 150);
+    cursor: pointer;
 }
 
 .button3 {
     padding: 10px 20px;
     background-color: rgb(187, 132, 68);
+    cursor: pointer;
 }

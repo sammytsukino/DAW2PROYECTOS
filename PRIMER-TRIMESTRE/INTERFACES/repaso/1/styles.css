@@ -2,21 +2,28 @@
     box-sizing: border-box;
 }
 
+
 .card {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(189, 255, 222);
     width: 250px;
-    border: 1px solid black;
+    border: 2px solid rgb(62, 62, 62);
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    gap: 15px;
-    
+    gap: 10px;
+    margin: 0 auto;
 }
+
 .title {
     font-weight: bold;;
 }
+
 .content {
-    text-align: justify;
+    text-align: left;
+    font-size: small;
+    line-height: 1.5;
 }
+
