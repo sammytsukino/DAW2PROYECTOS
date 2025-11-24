@@ -1,0 +1,23 @@
+{% extends 'cinemaapp/layout.html' %}
+
+{% block content %}
+        {% if perms.cinemaapp.add_movie%}
+        <a href="{% url "form"%}">New movie</a>
+        {% endif %}
+        <ul>
+            {% for movie in movies %}
+                <li>{{movie.title}}</li>
+                {% if perms.cinemaapp.view_movie %}
+                <a href="{% url 'movie_detail' movie.pk %}">Details</a>
+                {% endif %}
+                {% if perms.cinemaapp.change_movie %}
+                <a href="{% url 'movie_edit' movie.pk %}">Edit</a>
+                {% endif %}
+                {% if perms.cinemaapp.delete_movie %}
+                <a href="{% url 'movie_delete' movie.pk %}">Delete</a>
+                {% endif %}
+            {% empty %}
+                There are no movies
+            {% endfor %}
+        </ul>
+{% endblock content %}
