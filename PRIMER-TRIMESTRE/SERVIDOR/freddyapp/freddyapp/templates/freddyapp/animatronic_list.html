@@ -1,0 +1,42 @@
+{% extends 'freddyapp/base.html' %}
+
+{% block content %}
+<h1>Animatronics</h1>
+
+{% if perms.freddyapp.add_animatronic %}
+    <a href="{% url 'freddyapp:animatronic_new' %}">New animatronic</a>
+{% endif %}
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Animal</th>
+            <th>Build Date</th>
+            <th>Decommissioned</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for animatronic in animatronics %}
+        <tr>
+            <td>{{ animatronic.name }}</td>
+            <td>{{ animatronic.get_animal_display }}</td>
+            <td>{{ animatronic.build_date }}</td>
+            <td>{{ animatronic.decommissioned|yesno:"Yes,No" }}</td>
+            <td>
+                {% if perms.freddyapp.view_animatronic %}
+                    <a href="{% url 'freddyapp:animatronic_view' animatronic.id %}">View</a>
+                {% endif %}
+                {% if perms.freddyapp.change_animatronic %}
+                    <a href="{% url 'freddyapp:animatronic_edit' animatronic.id %}">Edit</a>
+                {% endif %}
+                {% if perms.freddyapp.delete_animatronic %}
+                    <a href="{% url 'freddyapp:animatronic_delete' animatronic.id %}">Delete</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

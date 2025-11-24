@@ -1,0 +1,23 @@
+{% extends 'freddyapp/base.html' %}
+
+{% block content %}
+<h1>{{ animatronic.name }}</h1>
+
+<p><strong>Name:</strong> {{ animatronic.name }}</p>
+<p><strong>Animal type:</strong> {{ animatronic.get_animal_display }}</p>
+<p><strong>Build date:</strong> {{ animatronic.build_date }}</p>
+<p><strong>Decommissioned:</strong> {{ animatronic.decommissioned|yesno:"Yes,No" }}</p>
+
+<h2>Parties</h2>
+{% if animatronic.parties.all %}
+    <ul>
+        {% for party in animatronic.parties.all %}
+            <li>{{ party.name }} - {{ party.attendants }} attendants</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No parties yet.</p>
+{% endif %}
+
+<a href="{% url 'freddyapp:animatronic_list' %}">Back to list</a>
+{% endblock %}
