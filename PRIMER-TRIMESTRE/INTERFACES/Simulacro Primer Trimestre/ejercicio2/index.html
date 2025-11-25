@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Formulario de registro - Mi web</title>
+</head>
+
+<body>
+    <h1>Formulario de registro</h1>
+    <form action="" method="get">
+        <div class="nombre">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre">
+        </div>
+
+        <div class="apellidos">
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" name="apellidos" id="apellidos">
+        </div>
+
+        <div class="sexo">
+            <label for="sexo">Sexo:</label>
+            <input type="radio" id="hombre" name="sexo" value="Hombre">
+            <label for="hombre">Hombre</label>
+            <input type="radio" id="mujer" name="sexo" value="Mujer">
+            <label for="mujer">Mujer</label>
+        </div>
+
+        <div class="email">
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+        </div>
+        
+        <div class="ofertas">
+            <input type="checkbox" name="ofertas" id="ofertas" checked>
+            <label for="ofertas">Deseo recibir información sobre patatín patatán</label>
+        </div>
+
+        <div class="condiciones">
+            <input type="checkbox" name="condiciones" id="condiciones">
+            <label for="condiciones">He leído las condiciones patatín patatán</label>
+        </div>
+    </form>
+    <button type="submit" class="button">Enviar</button>
+</body>
+
+</html>
