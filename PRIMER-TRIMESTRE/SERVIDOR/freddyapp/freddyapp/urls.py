@@ -22,6 +22,7 @@ from . import views
 
 app_name = 'freddyapp'
 
+# rutas de la aplicación
 urlpatterns = [
     path('list', views.animatronic_list, name='animatronic_list'),
     path('new', views.animatronic_new, name='animatronic_new'),

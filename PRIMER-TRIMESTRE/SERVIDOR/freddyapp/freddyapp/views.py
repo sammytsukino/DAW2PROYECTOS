@@ -8,15 +8,18 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from .models import Animatronic
 from .forms import AnimatronicForm
 
+# listar todos los animatronics
 def animatronic_list(request):
     animatronics = Animatronic.objects.all()
     return render(request, 'freddyapp/animatronic_list.html', {'animatronics': animatronics})
 
+# ver detalles (requiere login)
 @login_required
 def animatronic_view(request, id):
     animatronic = get_object_or_404(Animatronic, id=id)
     return render(request, 'freddyapp/animatronic_view.html', {'animatronic': animatronic})
 
+# crear nuevo (requiere permiso)
 @permission_required('freddyapp.add_animatronic', raise_exception=True)
 def animatronic_new(request):
     form = AnimatronicForm(request.POST or None)
@@ -25,6 +28,7 @@ def animatronic_new(request):
         return redirect('freddyapp:animatronic_list')
     return render(request, 'freddyapp/animatronic_form.html', {'form': form})
 
+# editar (requiere permiso)
 class AnimatronicUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = 'freddyapp.change_animatronic'
     model = Animatronic
@@ -33,6 +37,7 @@ class AnimatronicUpdate(PermissionRequiredMixin, UpdateView):
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('freddyapp:animatronic_list')
 
+# borrar (requiere permiso)
 class AnimatronicDelete(PermissionRequiredMixin, DeleteView):
     permission_required = 'freddyapp.delete_animatronic'
     model = Animatronic
@@ -40,6 +45,7 @@ class AnimatronicDelete(PermissionRequiredMixin, DeleteView):
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('freddyapp:animatronic_list')
 
+# registrar nuevo usuario y añadirlo al grupo Client
 def register(request):
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
@@ -48,12 +54,14 @@ def register(request):
         return redirect('freddyapp:login')
     return render(request, 'freddyapp/register.html', {'form': form})
 
+# guardar tema en cookie
 def set_theme(request):
     url_anterior = request.META.get('HTTP_REFERER', '/freddyapp/list')
     resp = redirect(url_anterior)
     resp.set_cookie('theme', 'dark')
     return resp
 
+# borrar cookies
 def clear_cookies(request):
     url_anterior = request.META.get('HTTP_REFERER', '/freddyapp/list')
     resp = redirect(url_anterior)

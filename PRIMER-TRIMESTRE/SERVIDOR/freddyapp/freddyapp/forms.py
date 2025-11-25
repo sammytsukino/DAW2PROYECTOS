@@ -1,6 +1,7 @@
 from django import forms
 from .models import Animatronic
 
+# formulario para crear y editar animatronics
 class AnimatronicForm(forms.ModelForm):
     class Meta:
         model = Animatronic
@@ -12,7 +13,7 @@ class AnimatronicForm(forms.ModelForm):
             'decommissioned': 'Decommissioned',
         }
         widgets = {
-            'build_date': forms.DateInput(attrs={'type': 'date'}),
+            'build_date': forms.DateInput(attrs={'type': 'date'}),  # selector de fecha
         }
         error_messages = {
             'name': {

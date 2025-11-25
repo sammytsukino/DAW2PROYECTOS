@@ -1,5 +1,6 @@
 from django.db import models
 
+# Modelo de fiestas
 class Party(models.Model):
     name = models.CharField(max_length=100)
     attendants = models.IntegerField()
@@ -7,6 +8,7 @@ class Party(models.Model):
     def __str__(self):
         return f"{self.name} - {self.attendants} attendants"
 
+# Modelo de animatronics
 class Animatronic(models.Model):
     ANIMAL_CHOICES = [
         ('BE', 'Bear'),
@@ -19,7 +21,7 @@ class Animatronic(models.Model):
     animal = models.CharField(max_length=2, choices=ANIMAL_CHOICES)
     build_date = models.DateField()
     decommissioned = models.BooleanField(default=False)
-    parties = models.ManyToManyField(Party, blank=True)
+    parties = models.ManyToManyField(Party, blank=True)  # relación muchos a muchos con Party
     
     def __str__(self):
         return self.name
