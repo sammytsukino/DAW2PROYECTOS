@@ -8,18 +8,18 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from .models import Animatronic
 from .forms import AnimatronicForm
 
-# listar todos los animatronics
+# Controlador animatronic_list: muestra la lista de animatrónicos (accesible para todos)
 def animatronic_list(request):
     animatronics = Animatronic.objects.all()
     return render(request, 'freddyapp/animatronic_list.html', {'animatronics': animatronics})
 
-# ver detalles (requiere login)
+# Controlador animatronic_view: muestra detalles de un animatrónico (requiere autenticación)
 @login_required
 def animatronic_view(request, id):
     animatronic = get_object_or_404(Animatronic, id=id)
     return render(request, 'freddyapp/animatronic_view.html', {'animatronic': animatronic})
 
-# crear nuevo (requiere permiso)
+# Controlador animatronic_new: muestra formulario de creación (requiere permiso add_animatronic)
 @permission_required('freddyapp.add_animatronic', raise_exception=True)
 def animatronic_new(request):
     form = AnimatronicForm(request.POST or None)
@@ -28,7 +28,7 @@ def animatronic_new(request):
         return redirect('freddyapp:animatronic_list')
     return render(request, 'freddyapp/animatronic_form.html', {'form': form})
 
-# editar (requiere permiso)
+# Controlador AnimatronicUpdate: muestra formulario de edición (requiere permiso change_animatronic)
 class AnimatronicUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = 'freddyapp.change_animatronic'
     model = Animatronic
@@ -37,7 +37,7 @@ class AnimatronicUpdate(PermissionRequiredMixin, UpdateView):
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('freddyapp:animatronic_list')
 
-# borrar (requiere permiso)
+# Controlador AnimatronicDelete: muestra confirmación de borrado (requiere permiso delete_animatronic)
 class AnimatronicDelete(PermissionRequiredMixin, DeleteView):
     permission_required = 'freddyapp.delete_animatronic'
     model = Animatronic
@@ -45,23 +45,23 @@ class AnimatronicDelete(PermissionRequiredMixin, DeleteView):
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('freddyapp:animatronic_list')
 
-# registrar nuevo usuario y añadirlo al grupo Client
+# Registro de usuario: añade automáticamente al grupo Client
 def register(request):
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
         user = form.save()
-        user.groups.add(Group.objects.get(name='Client'))
+        user.groups.add(Group.objects.get(name='Client'))  # Asigna grupo Client por defecto
         return redirect('freddyapp:login')
     return render(request, 'freddyapp/register.html', {'form': form})
 
-# guardar tema en cookie
+# Guarda cookie 'theme' con valor 'dark'
 def set_theme(request):
     url_anterior = request.META.get('HTTP_REFERER', '/freddyapp/list')
     resp = redirect(url_anterior)
     resp.set_cookie('theme', 'dark')
     return resp
 
-# borrar cookies
+# Borra la cookie 'theme'
 def clear_cookies(request):
     url_anterior = request.META.get('HTTP_REFERER', '/freddyapp/list')
     resp = redirect(url_anterior)

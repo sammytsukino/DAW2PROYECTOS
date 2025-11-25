@@ -1,20 +1,23 @@
 from django import forms
 from .models import Animatronic
 
-# formulario para crear y editar animatronics
+# AnimatronicForm: formulario para crear y editar animatrónicos
 class AnimatronicForm(forms.ModelForm):
     class Meta:
         model = Animatronic
         fields = ['name', 'animal', 'build_date', 'decommissioned']
+        # Etiquetas de los campos según enunciado
         labels = {
             'name': 'Name',
             'animal': 'Animal type',
             'build_date': 'Build date',
             'decommissioned': 'Decommissioned',
         }
+        # Widget de calendario para el campo build_date
         widgets = {
-            'build_date': forms.DateInput(attrs={'type': 'date'}),  # selector de fecha
+            'build_date': forms.DateInput(attrs={'type': 'date'}),
         }
+        # Mensajes de error personalizados según enunciado
         error_messages = {
             'name': {
                 'required': 'The name of the animatronic is required',

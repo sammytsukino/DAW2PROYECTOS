@@ -22,16 +22,16 @@ from . import views
 
 app_name = 'freddyapp'
 
-# rutas de la aplicación
+# Rutas de la aplicación según enunciado
 urlpatterns = [
-    path('list', views.animatronic_list, name='animatronic_list'),
-    path('new', views.animatronic_new, name='animatronic_new'),
-    path('<int:id>/view', views.animatronic_view, name='animatronic_view'),
-    path('<int:id>/edit', views.AnimatronicUpdate.as_view(), name='animatronic_edit'),
-    path('<int:id>/delete', views.AnimatronicDelete.as_view(), name='animatronic_delete'),
-    path('newuser', views.register, name='register'),
-    path('login', LoginView.as_view(template_name='freddyapp/login.html'), name='login'),
-    path('logout', LogoutView.as_view(next_page='freddyapp:animatronic_list'), name='logout'),
-    path('theme', views.set_theme, name='set_theme'),
-    path('clearcookies', views.clear_cookies, name='clear_cookies'),
+    path('list', views.animatronic_list, name='animatronic_list'),  # /freddyapp/list
+    path('new', views.animatronic_new, name='animatronic_new'),  # /freddyapp/new
+    path('<int:id>/view', views.animatronic_view, name='animatronic_view'),  # /freddyapp/<id>/view
+    path('<int:id>/edit', views.AnimatronicUpdate.as_view(), name='animatronic_edit'),  # /freddyapp/<id>/edit
+    path('<int:id>/delete', views.AnimatronicDelete.as_view(), name='animatronic_delete'),  # /freddyapp/<id>/delete
+    path('newuser', views.register, name='register'),  # /freddyapp/newuser
+    path('login', LoginView.as_view(template_name='freddyapp/login.html'), name='login'),  # /freddyapp/login
+    path('logout', LogoutView.as_view(next_page='freddyapp:animatronic_list'), name='logout'),  # /freddyapp/logout
+    path('theme', views.set_theme, name='set_theme'),  # /freddyapp/theme (cookie dark)
+    path('clearcookies', views.clear_cookies, name='clear_cookies'),  # /freddyapp/clearcookies
 ]
